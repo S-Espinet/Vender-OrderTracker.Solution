@@ -6,7 +6,7 @@ using VendorOrderTracker.Models;
 namespace VendorOrderTracker.Tests
 {
   [TestClass]
-  public class OrderTests
+  public class OrderTests 
   {
     [TestMethod]
     public void OrderConstructor_CreateInstanceOfOrder_Order()
@@ -43,6 +43,19 @@ namespace VendorOrderTracker.Tests
 
       //Assert
       Assert.AreEqual(updatedOrderTitle, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsEmptyList_OrderList()
+    {
+      //Arrange
+      List<Order> newList = new List<Order> { };
+
+      //Act
+      List<Order> result = Order.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
     }
   }
 }
