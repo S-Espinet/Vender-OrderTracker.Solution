@@ -56,6 +56,8 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(updatedOrderTitle, result);
     }
 
+    //no tests written for get and set for other properties; GetOrderTitle and SetOrderTitle sufficient to test default get and set (testing for default get and set is usually not necessary)
+
     [TestMethod]
     public void GetAll_ReturnsEmptyList_OrderList()
     {
@@ -67,6 +69,23 @@ namespace VendorOrderTracker.Tests
 
       //Assert
       CollectionAssert.AreEqual(newList, result);
+    }
+
+        [TestMethod]
+    public void GetId_OrdersInstantiateWithAnId_Int()
+    {
+      //Arrange
+      string orderTitle = "Croissants";
+      string description = "Order of 100";
+      int price = 400;
+      string date = "July 3 2020";
+      Order newItem = new Order(orderTitle, description, price, date);
+
+      //Act
+      int result = newItem.Id;
+
+      //Assert
+      Assert.AreEqual(1, result);
     }
   }
 }
