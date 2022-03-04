@@ -10,7 +10,7 @@ namespace VendorOrderTracker.Tests
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
-      Vendor newVendor = new Vendor("test vendor");
+      Vendor newVendor = new Vendor("test vendor", "test description");
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
 
@@ -19,7 +19,8 @@ namespace VendorOrderTracker.Tests
     {
       //Arrange
       string vendorName = "Test Vendor";
-      Vendor newVendor = new Vendor(vendorName);
+      string vendorDescription = "Test Description";
+      Vendor newVendor = new Vendor(vendorName, vendorDescription);
 
       //Act
       string result = newVendor.VendorName;
@@ -33,7 +34,8 @@ namespace VendorOrderTracker.Tests
     {
       //Arrange
       string vendorName = "Test Vendor";
-      Vendor newVendor = new Vendor(vendorName);
+      string vendorDescription = "Test Description";
+      Vendor newVendor = new Vendor(vendorName, vendorDescription);
 
       //Act
       string updatedVendorName = "Suzie's Cafe";
@@ -43,5 +45,7 @@ namespace VendorOrderTracker.Tests
       //Assert
       Assert.AreEqual(updatedVendorName, result);
     }
+
+        //no tests written for get and set for other properties; GetVendorName and SetVendorName sufficient to test default get and set (testing for default get and set is usually not necessary)
   }
 }
