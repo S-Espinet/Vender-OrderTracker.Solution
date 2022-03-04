@@ -15,7 +15,7 @@ namespace VendorOrderTracker.Tests
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
-      Vendor newVendor = new Vendor("test vendor", "test description");
+      Vendor newVendor = new Vendor("test vendor", "test vendor description");
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
 
@@ -24,7 +24,7 @@ namespace VendorOrderTracker.Tests
     {
       //Arrange
       string vendorName = "Test Vendor";
-      string vendorDescription = "Test Description";
+      string vendorDescription = "Test Vendor Description";
       Vendor newVendor = new Vendor(vendorName, vendorDescription);
 
       //Act
@@ -39,7 +39,7 @@ namespace VendorOrderTracker.Tests
     {
       //Arrange
       string vendorName = "Test Vendor";
-      string vendorDescription = "Test Description";
+      string vendorDescription = "Test Vendor Description";
       Vendor newVendor = new Vendor(vendorName, vendorDescription);
 
       //Act
@@ -58,11 +58,11 @@ namespace VendorOrderTracker.Tests
     {
       //Arrange
       string vendorName01 = "Test Vendor";
-      string description01 = "Test Description1";
+      string vendorDescription01 = "Test Vendor Description1";
       string vendorName02 = "Suzie's Cafe";
-      string description02 = "Test Description1";
-      Vendor newVendor1 = new Vendor(vendorName01, description01);
-      Vendor newVendor2 = new Vendor(vendorName02, description02);
+      string vendorDescription02 = "Test Vendor Description2";
+      Vendor newVendor1 = new Vendor(vendorName01, vendorDescription01);
+      Vendor newVendor2 = new Vendor(vendorName02, vendorDescription02);
       List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
 
       //Act
@@ -77,7 +77,7 @@ namespace VendorOrderTracker.Tests
     {
       //Arrange
       string vendorName = "Test Vendor";
-      string vendorDescription = "Test Description";
+      string vendorDescription = "Test Vendor Description";
       Vendor newVendor = new Vendor(vendorName, vendorDescription);
 
       //Act
@@ -93,9 +93,9 @@ namespace VendorOrderTracker.Tests
       //Arrange
       string vendorName01 = "Test Vendor";
       string vendorName02 = "Suzie's Cafe";
-      string description = "Test Description";
-      Vendor newVendor1 = new Vendor(vendorName01, description);
-      Vendor newVendor2 = new Vendor(vendorName02, description);
+      string vendorDescription = "Test Vendor Description";
+      Vendor newVendor1 = new Vendor(vendorName01, vendorDescription);
+      Vendor newVendor2 = new Vendor(vendorName02, vendorDescription);
 
       //Act
       Vendor result = Vendor.Find(2);
@@ -103,5 +103,27 @@ namespace VendorOrderTracker.Tests
       //Assert
       Assert.AreEqual(newVendor2, result);
     }
+
+  [TestMethod]
+  public void AddOrder_AssociatesOrderWithVendor_OrderList()
+  {
+    //Arrange
+    string orderTitle = "Croissants";
+    string description = "Order of 100";
+    int price = 400;
+    string date = "July 3 2022";
+    Order newOrder = new Order(orderTitle, description, price, date);
+    List<Order> newList = new List<Order> { newOrder };
+    string vendorName = "Test Vendor";
+    string vendorDescription = "Test Vendor Description";
+    Vendor newVendor = new Vendor(vendorName, vendorDescription);
+    newVendor.AddOrder(newOrder);
+
+    //Act
+    List<Order> result = newVendor.Orders;
+
+    //Assert
+    CollectionAssert.AreEqual(newList, result);
+  }
   }
 }
