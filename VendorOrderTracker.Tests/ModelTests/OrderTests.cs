@@ -12,11 +12,11 @@ namespace VendorOrderTracker.Tests
     {
       Order.ClearAll();
     }
-    
+
     [TestMethod]
     public void OrderConstructor_CreateInstanceOfOrder_Order()
     {
-      Order newOrder = new Order("test");
+      Order newOrder = new Order("testTitle", "testDescription", 0, "testDate");
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
 
@@ -25,7 +25,10 @@ namespace VendorOrderTracker.Tests
     {
       //Arrange
       string orderTitle = "Croissants";
-      Order newOrder = new Order(orderTitle);
+      string description = "Order of 100";
+      int price = 400;
+      string date = "July 3 2020";
+      Order newOrder = new Order(orderTitle, description, price, date);
 
       //Act
       string result = newOrder.OrderTitle;
@@ -39,7 +42,10 @@ namespace VendorOrderTracker.Tests
     {
       //Arrange
       string orderTitle = "Croissants";
-      Order newOrder = new Order(orderTitle);
+      string description = "Order of 100";
+      int price = 400;
+      string date = "July 3 2020";
+      Order newOrder = new Order(orderTitle, description, price, date);
 
       //Act
       string updatedOrderTitle = "Sourdough";
