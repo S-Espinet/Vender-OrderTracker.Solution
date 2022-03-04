@@ -93,10 +93,10 @@ namespace VendorOrderTracker.Tests
     {
       //Arrange
       string orderTitle01 = "Croissants";
-      string orderTitle02 = "Sourdough";
       string description = "Order of 100";
       int price = 400;
       string date = "July 3 2020";
+      string orderTitle02 = "Sourdough";
       Order newOrder1 = new Order(orderTitle01, description, price, date);
       Order newOrder2 = new Order(orderTitle02, description, price, date);
 
