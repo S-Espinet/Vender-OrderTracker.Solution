@@ -46,6 +46,25 @@ namespace VendorOrderTracker.Tests
       Assert.AreEqual(updatedVendorName, result);
     }
 
-        //no tests written for get and set for other properties; GetVendorName and SetVendorName sufficient to test default get and set (testing for default get and set is usually not necessary)
+//no tests written for get and set for other properties; GetVendorName and SetVendorName sufficient to test default get and set (testing for default get and set is usually not necessary)
+
+    [TestMethod]
+    public void GetAll_ReturnsAllVendorObjects_VendorList()
+    {
+      //Arrange
+      string vendorName01 = "Test Vendor";
+      string description01 = "Test Description1";
+      string vendorName02 = "Suzie's Cafe";
+      string description02 = "Test Description1";
+      Vendor newVendor1 = new Vendor(vendorName01, description01);
+      Vendor newVendor2 = new Vendor(vendorName02, description02);
+      List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
+
+      //Act
+      List<Vendor> result = Vendor.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }

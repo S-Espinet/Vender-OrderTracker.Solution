@@ -8,6 +8,8 @@ namespace VendorOrderTracker.Models
     public string VendorName { get; set; }
 
     public string VendorDescription { get; set; }
+
+
     public List<Order> Orders { get; set; }
     
     public Vendor(string vendorName, string vendorDescription)
@@ -15,6 +17,13 @@ namespace VendorOrderTracker.Models
       VendorName = vendorName;
       VendorDescription = vendorDescription;
       _instances.Add(this);
+
+      Orders = new List<Order>{};
+    }
+
+    public static List<Vendor> GetAll()
+    {
+      return _instances;
     }
   }
 }
