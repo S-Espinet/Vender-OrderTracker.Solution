@@ -7,6 +7,7 @@ namespace VendorOrderTracker.Models
     private static List<Vendor> _instances = new List<Vendor>{};
     public string VendorName { get; set; }
 
+
     public string VendorDescription { get; set; }
 
 
@@ -17,7 +18,6 @@ namespace VendorOrderTracker.Models
       VendorName = vendorName;
       VendorDescription = vendorDescription;
       _instances.Add(this);
-
       Orders = new List<Order>{};
     }
 
