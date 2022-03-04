@@ -27,7 +27,7 @@ namespace VendorOrderTracker.Tests
       string orderTitle = "Croissants";
       string description = "Order of 100";
       int price = 400;
-      string date = "July 3 2020";
+      string date = "July 3 2022";
       Order newOrder = new Order(orderTitle, description, price, date);
 
       //Act
@@ -44,7 +44,7 @@ namespace VendorOrderTracker.Tests
       string orderTitle = "Croissants";
       string description = "Order of 100";
       int price = 400;
-      string date = "July 3 2020";
+      string date = "July 3 2022";
       Order newOrder = new Order(orderTitle, description, price, date);
 
       //Act
@@ -78,7 +78,7 @@ namespace VendorOrderTracker.Tests
       string orderTitle = "Croissants";
       string description = "Order of 100";
       int price = 400;
-      string date = "July 3 2020";
+      string date = "July 3 2022";
       Order newOrder = new Order(orderTitle, description, price, date);
 
       //Act
@@ -86,6 +86,25 @@ namespace VendorOrderTracker.Tests
 
       //Assert
       Assert.AreEqual(1, result);
+    }
+
+    [TestMethod]
+    public void Find_ReturnsCorrectOrder_Order()
+    {
+      //Arrange
+      string orderTitle01 = "Croissants";
+      string orderTitle02 = "Sourdough";
+      string description = "Order of 100";
+      int price = 400;
+      string date = "July 3 2020";
+      Order newOrder1 = new Order(orderTitle01, description, price, date);
+      Order newOrder2 = new Order(orderTitle02, description, price, date);
+
+      //Act
+      Order result = Order.Find(2);
+
+      //Assert
+      Assert.AreEqual(newOrder2, result);
     }
   }
 }
