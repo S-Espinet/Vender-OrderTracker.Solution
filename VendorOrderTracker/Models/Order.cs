@@ -17,8 +17,8 @@ namespace VendorOrderTracker.Models
       Description = description;
       Price = price;
       Date = date;
-      Id = 0;
       _instances.Add(this);
+      Id = _instances.Count;
     }
 
     public static List<Order> GetAll()
@@ -30,5 +30,7 @@ namespace VendorOrderTracker.Models
     {
       _instances.Clear();
     }
+
+
   }
 }

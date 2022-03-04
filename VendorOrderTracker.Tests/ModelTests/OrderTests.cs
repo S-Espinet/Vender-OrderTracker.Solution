@@ -71,7 +71,7 @@ namespace VendorOrderTracker.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
-        [TestMethod]
+    [TestMethod]
     public void GetId_OrdersInstantiateWithAnId_Int()
     {
       //Arrange
@@ -79,10 +79,10 @@ namespace VendorOrderTracker.Tests
       string description = "Order of 100";
       int price = 400;
       string date = "July 3 2020";
-      Order newItem = new Order(orderTitle, description, price, date);
+      Order newOrder = new Order(orderTitle, description, price, date);
 
       //Act
-      int result = newItem.Id;
+      int result = newOrder.Id;
 
       //Assert
       Assert.AreEqual(1, result);
