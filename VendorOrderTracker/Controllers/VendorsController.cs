@@ -28,7 +28,7 @@ namespace VendorOrderTracker.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpGet("/categories/{id}")]
+    [HttpGet("/vendors/{id}")]
     public ActionResult Show(int id)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
@@ -39,7 +39,7 @@ namespace VendorOrderTracker.Controllers
       return View(model);
     }
 
-    [HttpPost("categories/{categoryId}/items")]
+    [HttpPost("vendors/{vendorId}/orders")]
     public ActionResult Create(int vendorId, string orderTitle, string orderDescription, int price, string date)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();

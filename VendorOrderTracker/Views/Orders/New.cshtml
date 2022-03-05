@@ -11,9 +11,13 @@
     <form action="/vendors/@Model.Id/orders" method="post">
       <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
       <label for="orderTitle">Order Title: </label>
-      <input id="orderTitle" name="orderTitle" type="text">
+      <input id="orderTitle" name="orderTitle" type="text"><hr>
       <label for="orderDescription">Order Description: </label>
-      <input id="orderDescription" name="orderDescription" type="text">
+      <input id="orderDescription" name="orderDescription" type="text"><hr>
+      <label for="price">Order Price: </label>
+      <input id="price" name="price" type="text"><hr>
+      <label for="date">Order Date: </label>
+      <input id="date" name="date" type="text">
       <button type='submit'>Add Order</button>
     </form>
   </body>

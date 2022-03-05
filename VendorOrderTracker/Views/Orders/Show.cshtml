@@ -8,11 +8,19 @@
   <body>
     <h1>Order Details: </h1>
 
-    <h2>@Model["order"].OrderTitle</h2>
-    <h2>@Model["order"].Description</h2>
-    <h3>Vendor: @Model["Vendor"].Name</h3>
+    @using VendorOrderTracker.Models;
 
-    <a href='/vendors/@Model["vendor"].Id/orders/new'>Add another item.</a>
+    <ol>
+      <li><a href='/vendors/@Model["vendor"].Id/orders/@Model["order"].Id'>@Model["order"].OrderTitle</a></li>
+      <li><a href='/vendors/@Model["vendor"].Id/orders/@Model["order"].Id'>@Model["order"].Description</a></li>
+      <li><a href='/vendors/@Model["vendor"].Id/orders/@Model["order"].Id'>@Model["order"].Price</a></li>
+      <li><a href='/vendors/@Model["vendor"].Id/orders/@Model["order"].Id'>@Model["order"].Date</a></li>
+    </ol>
+
+    <h3>Vendor: @Model["vendor"].VendorName</h3>
+
+    <a href='/vendors/@Model["vendor"].Id/orders/new'>Add another order.</a>
+    <a href='/vendors/@Model["vendor"].Id/orders/delete'>Delete all orders.</a>
     <a href='/vendors'>View all vendors.</a>
 
   </body>
